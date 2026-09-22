@@ -370,6 +370,61 @@ a:hover {
     display: block;
 }
 
+.project-image img.js-lightbox-trigger {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.project-image img.js-lightbox-trigger:hover {
+    transform: scale(1.03);
+}
+
+.project-image img.js-lightbox-trigger:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: -2px;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.94);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.lightbox-close:hover {
+    color: var(--red);
+}
+
 .project-body {
     padding: 24px;
     display: flex;

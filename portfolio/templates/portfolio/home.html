@@ -54,7 +54,7 @@
             <article class="project-card">
                 <div class="project-image">
                     {% if project.image %}
-                    <img src="{{ project.image.url }}" alt="{{ project.name }} screenshot">
+                    <img src="{{ project.image.url }}" alt="{{ project.name }} screenshot" class="js-lightbox-trigger" tabindex="0" role="button" aria-label="View larger screenshot of {{ project.name }}">
                     {% else %}
                     <img src="{% static 'images/project-placeholder.svg' %}" alt="{{ project.name }} placeholder">
                     {% endif %}
