@@ -14,7 +14,16 @@
             to 85% through automation, and I bring strong full-stack delivery under Agile/Scrum practices.
         </p>
         <div class="hero-actions">
-            <a href="{% static 'files/Edgar_Vallejo_CV.pdf' %}" class="btn btn-primary" download>Download CV</a>
+            <a href="{% static 'files/Edgar_Vallejo_CV_EN.pdf' %}"
+               data-cv-en="{% static 'files/Edgar_Vallejo_CV_EN.pdf' %}"
+               data-cv-es="{% static 'files/Edgar_Vallejo_CV_ES.pdf' %}"
+               data-label-en="Download CV"
+               data-label-es="Descargar CV"
+               class="btn btn-primary" id="cvDownloadBtn" download>Download CV</a>
+            <div class="cv-lang-toggle" role="group" aria-label="Resume language">
+                <button type="button" class="lang-btn active" data-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-lang="es">ES</button>
+            </div>
             <a href="#contact" class="btn btn-outline">Get in Touch</a>
         </div>
     </div>

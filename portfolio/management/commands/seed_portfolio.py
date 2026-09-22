@@ -25,25 +25,63 @@ class Command(BaseCommand):
                 "order": 1,
             },
             {
-                "role": "IT Engineer & Systems Analyst Intern",
-                "company": "Huawei & Pepsico",
-                "date_range": "January 2018 - July 2019",
+                "role": "IT Engineer Intern",
+                "company": "Huawei",
+                "date_range": "January 2019 - July 2019",
                 "description": (
                     "Managed switch configurations and performed hardware/software upgrades on compute nodes "
-                    "across multiple data centers at Huawei.\n"
-                    "Designed a storage and distribution system for cold-equipment management in warehouses as "
-                    "part of a multidisciplinary engineering team at Pepsico."
+                    "across multiple data centers."
                 ),
-                "technologies": "Networking, Systems Analysis, Hardware Upgrades, Process Design",
+                "technologies": "Networking, Switch Configuration, Hardware Upgrades",
                 "order": 2,
+            },
+            {
+                "role": "Android Developer",
+                "company": "Huawei Technologies",
+                "date_range": "June 2018 - July 2018",
+                "description": (
+                    "Built an Android application that gathers user feedback on signal quality satisfaction and "
+                    "uploads the results to an AWS RDS instance for analysis."
+                ),
+                "technologies": "Java, MySQL, AWS RDS, Android Studio",
+                "order": 3,
+            },
+            {
+                "role": "Systems Analyst Intern",
+                "company": "Pepsico",
+                "date_range": "January 2018 - November 2018",
+                "description": (
+                    "Designed a storage and distribution system for cold-equipment management in warehouses as "
+                    "part of a multidisciplinary engineering team."
+                ),
+                "technologies": "Systems Analysis, Process Design",
+                "order": 4,
+            },
+            {
+                "role": "Web Developer",
+                "company": "XumaK",
+                "date_range": "June 2017 - July 2017",
+                "description": (
+                    "Built page animations using GSAP and ScrollMagic.\n"
+                    "Developed backend features in PHP within WordPress."
+                ),
+                "technologies": "PHP, WordPress, GSAP, ScrollMagic, HTML, JavaScript",
+                "order": 5,
             },
         ]
 
+        seeded_keys = set()
         for data in experiences:
             obj, created = Experience.objects.update_or_create(
                 role=data["role"], company=data["company"], defaults=data
             )
+            seeded_keys.add((data["role"], data["company"]))
             self.stdout.write(self.style.SUCCESS(f"{'Created' if created else 'Updated'} experience: {obj}"))
+
+        for exp in Experience.objects.all():
+            if (exp.role, exp.company) not in seeded_keys:
+                self.stdout.write(self.style.WARNING(f"Removing stale experience: {exp}"))
+                exp.delete()
 
         projects = [
             {
