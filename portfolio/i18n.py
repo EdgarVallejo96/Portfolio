@@ -27,8 +27,8 @@ UI_TEXT = {
         "view_code": "View Code",
         "live_demo": "Live Demo",
         "contact_lede": (
-            "Have a project in mind, or just want to talk about software engineering? My inbox is open — "
-            "I'll get back to you as soon as I can."
+            "Have a project in mind, or just want to talk? My inbox is open — I'll get back to you as "
+            "soon as I can."
         ),
         "footer_rights": "All rights reserved.",
     },
@@ -60,8 +60,8 @@ UI_TEXT = {
         "view_code": "Ver Código",
         "live_demo": "Demo en Vivo",
         "contact_lede": (
-            "¿Tienes un proyecto en mente, o simplemente quieres hablar de ingeniería de software? Mi "
-            "bandeja de entrada está abierta — te responderé lo antes posible."
+            "¿Tienes un proyecto en mente, o simplemente quieres platicar? Mi bandeja de entrada está "
+            "abierta — te responderé lo antes posible."
         ),
         "footer_rights": "Todos los derechos reservados.",
     },
