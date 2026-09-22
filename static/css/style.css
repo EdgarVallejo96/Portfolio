@@ -357,6 +357,7 @@ a:hover {
 }
 
 .project-image {
+    position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
@@ -368,6 +369,68 @@ a:hover {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.project-image img.project-photo {
+    display: none;
+}
+
+.project-image img.project-photo.active {
+    display: block;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(10, 10, 10, 0.55);
+    color: var(--white);
+    font-size: 1.6rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: var(--red);
+}
+
+.carousel-prev {
+    left: 12px;
+}
+
+.carousel-next {
+    right: 12px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 2;
+}
+
+.carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(245, 245, 245, 0.4);
+}
+
+.carousel-dot.active {
+    background: var(--red);
 }
 
 .project-image img.js-lightbox-trigger {

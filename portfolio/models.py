@@ -62,3 +62,24 @@ class Project(models.Model):
 
     def localized_description(self, lang):
         return self.description_es if lang == "es" and self.description_es else self.description
+
+    @property
+    def image_urls(self):
+        gallery_urls = [photo.image.url for photo in self.photos.all() if photo.image]
+        if gallery_urls:
+            return gallery_urls
+        if self.image:
+            return [self.image.url]
+        return []
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="photos")
+    image = models.ImageField(upload_to="projects/gallery/")
+    order = models.PositiveIntegerField(default=0, help_text="Lower numbers show first.")
+
+    class Meta:
+        ordering = ["order", "id"]
+
+    def __str__(self):
+        return f"Photo {self.order} for {self.project.name}"

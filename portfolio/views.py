@@ -19,7 +19,7 @@ def home(request):
         exp.display_date_range = exp.localized_date_range(lang)
         exp.display_description_lines = exp.localized_description_lines(lang)
 
-    projects = Project.objects.all()
+    projects = Project.objects.prefetch_related("photos").all()
     for project in projects:
         project.display_description = project.localized_description(lang)
 

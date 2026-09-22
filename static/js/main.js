@@ -16,6 +16,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    document.querySelectorAll('.project-image.has-carousel').forEach(function (container) {
+        var photos = container.querySelectorAll('.project-photo');
+        var dots = container.querySelectorAll('.carousel-dot');
+        var current = 0;
+
+        var show = function (index) {
+            photos[current].classList.remove('active');
+            if (dots[current]) dots[current].classList.remove('active');
+            current = (index + photos.length) % photos.length;
+            photos[current].classList.add('active');
+            if (dots[current]) dots[current].classList.add('active');
+        };
+
+        var prevBtn = container.querySelector('.carousel-prev');
+        var nextBtn = container.querySelector('.carousel-next');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                show(current - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                show(current + 1);
+            });
+        }
+    });
+
     var lightbox = document.getElementById('lightbox');
     var lightboxImage = document.getElementById('lightboxImage');
     var lightboxClose = document.getElementById('lightboxClose');

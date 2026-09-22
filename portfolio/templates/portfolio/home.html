@@ -52,11 +52,20 @@
         <div class="project-grid">
             {% for project in projects %}
             <article class="project-card">
-                <div class="project-image">
-                    {% if project.image %}
-                    <img src="{{ project.image.url }}" alt="{{ project.name }} screenshot" class="js-lightbox-trigger" tabindex="0" role="button" aria-label="View larger screenshot of {{ project.name }}">
-                    {% else %}
+                <div class="project-image{% if project.image_urls|length > 1 %} has-carousel{% endif %}">
+                    {% for img_url in project.image_urls %}
+                    <img src="{{ img_url }}" alt="{{ project.name }} screenshot {{ forloop.counter }}" class="js-lightbox-trigger project-photo{% if forloop.first %} active{% endif %}" tabindex="0" role="button" aria-label="View larger screenshot of {{ project.name }}">
+                    {% empty %}
                     <img src="{% static 'images/project-placeholder.svg' %}" alt="{{ project.name }} placeholder">
+                    {% endfor %}
+                    {% if project.image_urls|length > 1 %}
+                    <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous photo">&#8249;</button>
+                    <button type="button" class="carousel-arrow carousel-next" aria-label="Next photo">&#8250;</button>
+                    <div class="carousel-dots">
+                        {% for img_url in project.image_urls %}
+                        <span class="carousel-dot{% if forloop.first %} active{% endif %}"></span>
+                        {% endfor %}
+                    </div>
                     {% endif %}
                 </div>
                 <div class="project-body">
