@@ -5,45 +5,31 @@
 
 <section class="hero" id="about">
     <div class="container hero-inner">
-        <p class="eyebrow">Software Engineer &amp; Team Lead</p>
-        <h1>Edgar Vallejo</h1>
-        <p class="hero-lede">
-            I'm a software engineer and team lead based in Guatemala City with 6+ years of experience leading
-            engineering teams and building scalable backend systems, REST APIs, and automation pipelines. I work
-            across Python, C#, JavaScript, and PHP, with a track record of cutting operational processing time by up
-            to 85% through automation, and I bring strong full-stack delivery under Agile/Scrum practices.
-        </p>
+        <p class="eyebrow">{{ ui.eyebrow }}</p>
+        <h1>{{ ui.hero_name }}</h1>
+        <p class="hero-lede">{{ ui.hero_lede }}</p>
         <div class="hero-actions">
-            <a href="{% static 'files/Edgar_Vallejo_CV_EN.pdf' %}"
-               data-cv-en="{% static 'files/Edgar_Vallejo_CV_EN.pdf' %}"
-               data-cv-es="{% static 'files/Edgar_Vallejo_CV_ES.pdf' %}"
-               data-label-en="Download CV"
-               data-label-es="Descargar CV"
-               class="btn btn-primary" id="cvDownloadBtn" download>Download CV</a>
-            <div class="cv-lang-toggle" role="group" aria-label="Resume language">
-                <button type="button" class="lang-btn active" data-lang="en">EN</button>
-                <button type="button" class="lang-btn" data-lang="es">ES</button>
-            </div>
-            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            <a href="{{ cv_url }}" class="btn btn-primary" download>{{ ui.download_cv }}</a>
+            <a href="#contact" class="btn btn-outline">{{ ui.get_in_touch }}</a>
         </div>
     </div>
 </section>
 
 <section class="section" id="experience">
     <div class="container">
-        <h2 class="section-title"><span>01.</span> Experience</h2>
+        <h2 class="section-title"><span>01.</span> {{ ui.section_experience }}</h2>
         <div class="experience-list">
             {% for exp in experiences %}
             <article class="experience-card">
                 <div class="experience-header">
                     <div>
-                        <h3>{{ exp.role }}</h3>
+                        <h3>{{ exp.display_role }}</h3>
                         <p class="experience-company">{{ exp.company }}</p>
                     </div>
-                    <p class="experience-date">{{ exp.date_range }}</p>
+                    <p class="experience-date">{{ exp.display_date_range }}</p>
                 </div>
                 <ul class="experience-description">
-                    {% for line in exp.description_lines %}
+                    {% for line in exp.display_description_lines %}
                     <li>{{ line }}</li>
                     {% endfor %}
                 </ul>
@@ -54,7 +40,7 @@
                 </div>
             </article>
             {% empty %}
-            <p class="empty-state">Experience entries will appear here soon.</p>
+            <p class="empty-state">{{ ui.experience_empty }}</p>
             {% endfor %}
         </div>
     </div>
@@ -62,7 +48,7 @@
 
 <section class="section section-alt" id="projects">
     <div class="container">
-        <h2 class="section-title"><span>02.</span> Projects</h2>
+        <h2 class="section-title"><span>02.</span> {{ ui.section_projects }}</h2>
         <div class="project-grid">
             {% for project in projects %}
             <article class="project-card">
@@ -75,7 +61,7 @@
                 </div>
                 <div class="project-body">
                     <h3>{{ project.name }}</h3>
-                    <p>{{ project.description }}</p>
+                    <p>{{ project.display_description }}</p>
                     <div class="tag-list">
                         {% for tech in project.technologies_list %}
                         <span class="tag">{{ tech }}</span>
@@ -83,16 +69,16 @@
                     </div>
                     <div class="project-links">
                         {% if project.github_url %}
-                        <a href="{{ project.github_url }}" target="_blank" rel="noopener">View Code &rarr;</a>
+                        <a href="{{ project.github_url }}" target="_blank" rel="noopener">{{ ui.view_code }} &rarr;</a>
                         {% endif %}
                         {% if project.demo_url %}
-                        <a href="{{ project.demo_url }}" target="_blank" rel="noopener">Live Demo &rarr;</a>
+                        <a href="{{ project.demo_url }}" target="_blank" rel="noopener">{{ ui.live_demo }} &rarr;</a>
                         {% endif %}
                     </div>
                 </div>
             </article>
             {% empty %}
-            <p class="empty-state">Projects will appear here soon.</p>
+            <p class="empty-state">{{ ui.projects_empty }}</p>
             {% endfor %}
         </div>
     </div>
@@ -100,10 +86,8 @@
 
 <section class="section" id="contact">
     <div class="container contact-inner">
-        <h2 class="section-title"><span>03.</span> Contact</h2>
-        <p class="contact-lede">
-            Have a project in mind or want to talk shop? My inbox is open — I'll get back to you as soon as I can.
-        </p>
+        <h2 class="section-title"><span>03.</span> {{ ui.section_contact }}</h2>
+        <p class="contact-lede">{{ ui.contact_lede }}</p>
         <a href="mailto:{{ contact_email }}" class="btn btn-primary btn-large">{{ contact_email }}</a>
     </div>
 </section>
