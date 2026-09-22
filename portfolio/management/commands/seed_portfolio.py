@@ -139,6 +139,7 @@ class Command(BaseCommand):
                 ),
                 "technologies": "Angular, TypeScript, RxJS, Vitest",
                 "github_url": "https://github.com/EdgarVallejo96/MineSweeper",
+                "image": "projects/minesweeper.png",
                 "order": 1,
             },
             {
