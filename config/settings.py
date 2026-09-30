@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
+    'django_distill',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'portfolio.context_processors.site_links',
-                'portfolio.context_processors.site_language',
             ],
         },
     },
@@ -117,11 +117,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# The site is served from https://<user>.github.io/Portfolio/, so asset URLs carry that prefix.
+SITE_PREFIX = '/Portfolio/'
+STATIC_URL = SITE_PREFIX + 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Media files (user-uploaded project screenshots)
-MEDIA_URL = 'media/'
+MEDIA_URL = SITE_PREFIX + 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -130,3 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CONTACT_EMAIL = 'e-emilio@hotmail.com'
 GITHUB_URL = 'https://github.com/EdgarVallejo96'
 LINKEDIN_URL = 'https://www.linkedin.com/in/edgar-v-10478396/'
+
+# Static export (django-distill) for GitHub Pages; served from /docs on main
+DISTILL_DIR = BASE_DIR / 'docs'

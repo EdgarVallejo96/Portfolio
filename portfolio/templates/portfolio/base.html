@@ -18,8 +18,8 @@
             <a href="#top" class="logo">EDGAR<span>.VALLEJO</span></a>
             <div class="header-right">
                 <div class="lang-switch" role="group" aria-label="Language">
-                    <a href="{% url 'portfolio:set_language' 'en' %}?next={{ request.path }}" class="lang-btn{% if lang == 'en' %} active{% endif %}">EN</a>
-                    <a href="{% url 'portfolio:set_language' 'es' %}?next={{ request.path }}" class="lang-btn{% if lang == 'es' %} active{% endif %}">ES</a>
+                    <a href="../en/" class="lang-btn{% if lang == 'en' %} active{% endif %}">EN</a>
+                    <a href="../es/" class="lang-btn{% if lang == 'es' %} active{% endif %}">ES</a>
                 </div>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span><span></span><span></span>

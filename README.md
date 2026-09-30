@@ -30,6 +30,18 @@ Then visit:
 
 Stop the server with `Ctrl+C`.
 
+## Publishing to GitHub Pages
+
+The public site is a static export served from `/docs` on `main` at `https://<user>.github.io/Portfolio/`
+(`/en/` and `/es/`). Edit content in the local admin, then:
+
+```powershell
+.\venv\Scripts\python.exe manage.py build_site
+git add docs && git commit -m "Rebuild site" && git push
+```
+
+In the repo settings, set Pages to deploy from branch `main`, folder `/docs` (once).
+
 ## Project structure
 
 - `config/` - Django project settings and root URLs.

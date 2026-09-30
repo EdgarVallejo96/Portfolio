@@ -1,10 +1,16 @@
-from django.urls import path
+from django_distill import distill_path
 
 from . import views
+from .i18n import UI_TEXT
 
 app_name = "portfolio"
 
+
+def languages():
+    return [{"lang": code} for code in UI_TEXT]
+
+
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("lang/<str:lang_code>/", views.set_language, name="set_language"),
+    distill_path("", views.root, name="root", distill_file="index.html"),
+    distill_path("<str:lang>/", views.home, name="home", distill_func=languages),
 ]
