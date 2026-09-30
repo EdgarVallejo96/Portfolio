@@ -138,7 +138,8 @@ class Command(BaseCommand):
                     "probado con Vitest."
                 ),
                 "technologies": "Angular, TypeScript, RxJS, Vitest",
-                "github_url": "https://github.com/EdgarVallejo96/MineSweeper",
+                "github_url": "",
+                "demo_url": "https://edgarvallejo96.github.io/MineSweeper/",
                 "image": "projects/minesweeper.png",
                 "order": 1,
             },

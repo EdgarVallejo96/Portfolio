@@ -25,7 +25,7 @@ UI_TEXT = {
         "experience_empty": "Experience entries will appear here soon.",
         "projects_empty": "Projects will appear here soon.",
         "view_code": "View Code",
-        "live_demo": "Live Demo",
+        "live_demo": "Play Game",
         "contact_lede": (
             "Have a project in mind, or just want to talk? My inbox is open — I'll get back to you as "
             "soon as I can."
@@ -58,7 +58,7 @@ UI_TEXT = {
         "experience_empty": "Pronto aparecerá la experiencia aquí.",
         "projects_empty": "Pronto aparecerán los proyectos aquí.",
         "view_code": "Ver Código",
-        "live_demo": "Demo en Vivo",
+        "live_demo": "Jugar",
         "contact_lede": (
             "¿Tienes un proyecto en mente, o simplemente quieres platicar? Mi bandeja de entrada está "
             "abierta — te responderé lo antes posible."
