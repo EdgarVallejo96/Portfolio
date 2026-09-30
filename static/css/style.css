@@ -488,6 +488,59 @@ a:hover {
     color: var(--red);
 }
 
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    color: var(--white);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lightbox-arrow[hidden] {
+    display: none;
+}
+
+.lightbox-arrow:hover {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.lightbox .carousel-dots {
+    bottom: 28px;
+    gap: 10px;
+}
+
+.lightbox .carousel-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox .carousel-dot:hover {
+    background: rgba(245, 245, 245, 0.8);
+}
+
+.lightbox .carousel-dot.active {
+    background: var(--red);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
 .project-body {
     padding: 24px;
     display: flex;
